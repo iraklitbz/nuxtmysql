@@ -17,6 +17,8 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+Mysql configurado en /api/mysql.js apuntado a localhost
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
