@@ -34,7 +34,7 @@ module.exports = {
   ],
   server: {
     port: 3000, 
-    host: '63.35.236.33', 
+    host: '172.31.24.78', 
   },
   /*
   ** Nuxt.js dev-modules
