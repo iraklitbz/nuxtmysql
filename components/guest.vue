@@ -12,53 +12,53 @@
       <v-flex mb-4>
         <form class="main-from">
           <v-text-field
-            v-model="name"
+            v-model="form.name"
             :error-messages="nameErrors"
             :counter="15"
             label="Nombre"
             required
-            @input="$v.name.$touch()"
-            @blur="$v.name.$touch()"
+            @input="$v.form.name.$touch()"
+            @blur="$v.form.name.$touch()"
           ></v-text-field>
           <v-text-field
-            v-model="surname"
+            v-model="form.surname"
             :error-messages="surnameErrors"
             :counter="40"
             label="Apellidos"
             required
-            @input="$v.surname.$touch()"
-            @blur="$v.surname.$touch()"
+            @input="$v.form.surname.$touch()"
+            @blur="$v.form.surname.$touch()"
           ></v-text-field>
           <v-text-field
-            v-model="email"
+            v-model="form.email"
             :error-messages="emailErrors"
             label="E-mail"
             required
-            @input="$v.email.$touch()"
-            @blur="$v.email.$touch()"
+            @input="$v.form.email.$touch()"
+            @blur="$v.form.email.$touch()"
           ></v-text-field>
           <v-text-field
-            v-model="visitor"
+            v-model="form.visitor"
             :error-messages="visitorErrors"
             :counter="40"
             label="Vengo a ver a (nombre y apellidos)"
             required
-            @input="$v.visitor.$touch()"
-            @blur="$v.visitor.$touch()"
+            @input="$v.form.visitor.$touch()"
+            @blur="$v.form.visitor.$touch()"
           ></v-text-field>
           <v-checkbox
-            v-model="newsletter"
+            v-model="form.newsletter"
             label="Sí, quiero suscribirme a la newsletter de Impact Hub"
-            @change="$v.newsletter.$touch()"
-            @blur="$v.newsletter.$touch()"
+            @change="$v.form.newsletter.$touch()"
+            @blur="$v.form.newsletter.$touch()"
           ></v-checkbox>
           <v-checkbox
-            v-model="aceptoTodo"
+            v-model="form.aceptoTodo"
             :error-messages="aceptoTodoErrors"
             :label="aviso"
             required
-            @change="$v.aceptoTodo.$touch()"
-            @blur="$v.aceptoTodo.$touch()"
+            @change="$v.form.aceptoTodo.$touch()"
+            @blur="$v.form.aceptoTodo.$touch()"
           ></v-checkbox>
 
           <div class="footer">
@@ -67,11 +67,11 @@
           </div>
         </form>
       </v-flex>
-      <v-dialog v-model="dialog" max-width="500">
+      <v-dialog v-model="form.dialog" max-width="500">
         <v-card>
           <v-card-title class="headline">Muchas gracias!</v-card-title>
 
-          <v-card-text>Se avisara enseguida a {{this.visitor}} de su llegada, gracias</v-card-text>
+          <v-card-text>Se avisara enseguida a {{form.visitor}} de su llegada, gracias</v-card-text>
 
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -87,90 +87,85 @@
 <script>
 import { validationMixin } from "vuelidate";
 import { required, maxLength, email } from "vuelidate/lib/validators";
-import Axios from "axios";
 
 export default {
   mixins: [validationMixin],
-
   validations: {
-    name: { required, maxLength: maxLength(15) },
-    surname: { required, maxLength: maxLength(40) },
-    visitor: { required, maxLength: maxLength(40) },
-    email: { required, email },
-    select: { required },
-    aceptoTodo: {
-      checked(val) {
-        return val;
-      }
-    },
-    newsletter: {
-      checked(val) {
-        return val;
+    form: {
+      name: { required, maxLength: maxLength(15) },
+      surname: { required, maxLength: maxLength(40) },
+      visitor: { required, maxLength: maxLength(40) },
+      email: { required, email },
+      select: { required },
+      aceptoTodo: {
+        checked(val) {
+          return val;
+        }
+      },
+      newsletter: {
+        checked(val) {
+          return val;
+        }
       }
     }
   },
 
   data: () => ({
     guest: [],
-    name: "",
-    surname: "",
-    visitor: "",
-    email: "",
-    aceptoTodo: false,
-    newsletter: true,
-    dialog: false,
-    aviso:
-      "Almacenaremos tus datos máximo 60 días," + "\n" + "¿estas de acuerdo?"
+    form: {
+      name: "",
+      surname: "",
+      visitor: "",
+      email: "",
+      aceptoTodo: false,
+      newsletter: true,
+      dialog: false
+    },
+    aviso: "Almacenaremos tus datos máximo 60 días," + "\n" + "¿estas de acuerdo?"
   }),
   computed: {
     aceptoTodoErrors() {
       const errors = [];
-      if (!this.$v.aceptoTodo.$dirty) return errors;
-      !this.$v.aceptoTodo.checked && errors.push("Este campo es obligatorio");
+      if (!this.$v.form.aceptoTodo.$dirty) return errors;
+      !this.$v.form.aceptoTodo.checked && errors.push("Este campo es obligatorio");
       return errors;
     },
     nameErrors() {
       const errors = [];
-      if (!this.$v.name.$dirty) return errors;
-      !this.$v.name.maxLength &&
+      if (!this.$v.form.name.$dirty) return errors;
+      !this.$v.form.name.maxLength &&
         errors.push("El nombre debe de contener máximo 15 caracteres ");
-      !this.$v.name.required && errors.push("Este campo es obligatorio");
+      !this.$v.form.name.required && errors.push("Este campo es obligatorio");
       return errors;
     },
     surnameErrors() {
       const errors = [];
-      if (!this.$v.surname.$dirty) return errors;
-      !this.$v.surname.maxLength &&
+      if (!this.$v.form.surname.$dirty) return errors;
+      !this.$v.form.surname.maxLength &&
         errors.push("Los apellidos deben de contener máximo 40 caracteres ");
-      !this.$v.surname.required && errors.push("Este campo es obligatorio");
+      !this.$v.form.surname.required && errors.push("Este campo es obligatorio");
       return errors;
     },
     visitorErrors() {
       const errors = [];
-      if (!this.$v.visitor.$dirty) return errors;
-      !this.$v.visitor.maxLength &&
+      if (!this.$v.form.visitor.$dirty) return errors;
+      !this.$v.form.visitor.maxLength &&
         errors.push("El nombre debe de contener máximo 15 caracteres");
-      !this.$v.visitor.required && errors.push("Este campo es obligatorio");
+      !this.$v.form.visitor.required && errors.push("Este campo es obligatorio");
       return errors;
     },
     emailErrors() {
       const errors = [];
-      if (!this.$v.email.$dirty) return errors;
-      !this.$v.email.email && errors.push("Tiene que ser un e-mail valido");
-      !this.$v.email.required && errors.push("Este campo es obligatorio");
+      if (!this.$v.form.email.$dirty) return errors;
+      !this.$v.form.email.email && errors.push("Tiene que ser un e-mail valido");
+      !this.$v.form.email.required && errors.push("Este campo es obligatorio");
       return errors;
     }
   },
 
   methods: {
     submit() {
-
-      Axios.post("/user", {
-        request: 2,
-        username: this.surname,
-        name: this.name,
-        email: this.email
-      })
+      this.$axios.post("/api", this.form)
         .then(function(response) {
           console.log(response);
         })
@@ -180,12 +175,12 @@ export default {
     },
     clear() {
       this.$v.$reset();
-      this.name = "";
-      this.surname = "";
-      this.visitor = "";
-      this.email = "";
-      this.aceptoTodo = false;
-      this.dialog = false;
+      this.form.name = "";
+      this.form.surname = "";
+      this.form.visitor = "";
+      this.form.email = "";
+      this.form.aceptoTodo = false;
+      this.form.dialog = false;
     }
   },
   mounted() {
