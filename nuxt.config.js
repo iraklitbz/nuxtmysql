@@ -32,10 +32,7 @@ module.exports = {
   */
   plugins: [
   ],
-  server: {
-    port: 3000, 
-    host: '172.31.24.78', 
-  },
+
   /*
   ** Nuxt.js dev-modules
   */
