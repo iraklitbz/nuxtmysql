@@ -7,7 +7,7 @@ const sequelize = new Sequelize('guests', 'root', '', {
 export default async function (req, res, next) {
     const fields = Object.keys(req.body)
     const values = Object.values(req.body)
-
+    console.log(Object.values(req.body))
     let parsedValues = []
 
     values.map(item => {

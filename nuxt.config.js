@@ -62,7 +62,11 @@ module.exports = {
     { 
       path: '/api', 
       handler: '~/api/mysql.js' 
-    }
+    },
+    {
+      path: '/api/send-mail',
+      handler: '~/api/email.js'
+    },
   ],
   /*
   ** Build configuration
