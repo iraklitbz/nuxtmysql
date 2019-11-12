@@ -48,6 +48,10 @@ module.exports = {
   modules: [
     '@nuxtjs/axios'
   ],
+  
+  axios: {
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://63.35.236.33:3000' : 'http://63.35.236.33:3000'
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

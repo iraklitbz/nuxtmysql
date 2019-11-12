@@ -165,13 +165,20 @@ export default {
 
   methods: {
     submit() {
-      this.$axios.post("/api", this.form)
+      console.log(this.$v);
+      
+      if (!this.$v.$invalid === true) {
+        this.$v.$touch()
+      } else {
+        this.$axios.post("/api", this.form)
         .then(function(response) {
           console.log(response);
         })
         .catch(function(error) {
           console.log(error);
         });
+      }
+      
     },
     clear() {
       this.$v.$reset();
