@@ -166,10 +166,7 @@ export default {
   methods: {
     submit() {
       console.log(this.$v);
-      
-      if (!this.$v.$invalid === true) {
         this.$v.$touch()
-      } else {
         this.$axios.post("/api", this.form)
         .then(function(response) {
           console.log(response);
@@ -177,7 +174,7 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
-      }
+      
       
     },
     clear() {
