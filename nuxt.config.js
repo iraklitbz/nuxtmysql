@@ -50,7 +50,7 @@ module.exports = {
   ],
   
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000'
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://63.35.236.33:3000' : 'http://localhost:3000'
   },
   /*
   ** vuetify module configuration
@@ -62,11 +62,7 @@ module.exports = {
     { 
       path: '/api', 
       handler: '~/api/mysql.js' 
-    },
-    {
-      path: '/api/send-mail',
-      handler: '~/api/email.js'
-    },
+    }
   ],
   /*
   ** Build configuration

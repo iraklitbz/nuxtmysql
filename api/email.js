@@ -5,14 +5,14 @@ const transporter = nodemailer.createTransport({
         user: 'iraklitbz@gmail.com',
         pass: 'Adob31d123'
     }
-});
+})
 const mailOptions = {
     from: 'iraklitbz@gmail.com',
     to: 'iraklitbz@gmail.com',
     subject: 'Visita'
-};
+}
 
-export default (req, res) => {
+function sendMail (body) {
     let html = `<!doctype html>
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     
@@ -23,13 +23,16 @@ export default (req, res) => {
       <!--<![endif]-->
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-     
-     
     </head>
     
     <body>
-      <div>${req.body['Name']}</div>
-     
+      <div>${body.name}</div>
+      <div>${body.surname}</div>
+      <div>${body.visitor}</div>
+      <div>${body.email}</div>
+      <div>${body.aceptoTodo}</div>
+      <div>${body.newletter}</div>
+      <div>${body.dialog}</div>
     </body>
     
     </html>`
@@ -37,12 +40,9 @@ export default (req, res) => {
     mailOptions.html = html
 
     transporter.sendMail(mailOptions, function (err, info) {
-        if(err) {
-            res.json(err)
-        }
-        
-        else {  
-            res.json(req.body)
-        }
-    });   
+        if(err) console.log('KO', err)
+        else console.log('OK', info)    
+    }) 
 }
+
+export default sendMail

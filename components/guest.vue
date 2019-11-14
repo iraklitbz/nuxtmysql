@@ -165,7 +165,6 @@ export default {
 
   methods: {
     submit() {
-      console.log(this.$v);
         this.$v.$touch()
         this.$axios.post("/api", this.form)
         .then(function(response) {

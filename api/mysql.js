@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize'
+import sendMail from './email'
 
 const sequelize = new Sequelize('guests', 'root', '', {
     dialect: 'mysql'
@@ -7,7 +8,7 @@ const sequelize = new Sequelize('guests', 'root', '', {
 export default async function (req, res, next) {
     const fields = Object.keys(req.body)
     const values = Object.values(req.body)
-    console.log(Object.values(req.body))
+    
     let parsedValues = []
 
     values.map(item => {
@@ -19,6 +20,10 @@ export default async function (req, res, next) {
             type: sequelize.QueryTypes.INSERT 
         })
         
+        if (Array.isArray(result)) {
+            sendMail(req.body)
+        }
+
         res.json(result)
     }
     
