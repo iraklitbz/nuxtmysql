@@ -165,15 +165,18 @@ export default {
 
   methods: {
     submit() {
-        this.$v.$touch()
-        this.$axios.post("/api", this.form)
-        .then(function(response) {
-          console.log(response);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-      
+        if(this.$v.form.name.required === true && this.$v.form.surname.required === true && this.$v.form.visitor.required === true && this.$v.form.email.required === true && this.$v.form.aceptoTodo.checked  === true )  {
+          this.$axios.post("/api", this.form)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+           dialog: true
+        } else {
+         this.$v.$touch()
+        }
       
     },
     clear() {

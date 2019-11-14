@@ -26,13 +26,11 @@ function sendMail (body) {
     </head>
     
     <body>
-      <div>${body.name}</div>
-      <div>${body.surname}</div>
-      <div>${body.visitor}</div>
-      <div>${body.email}</div>
-      <div>${body.aceptoTodo}</div>
-      <div>${body.newletter}</div>
-      <div>${body.dialog}</div>
+       <h2>Tenemos visita!</h2>
+      <div>${body.name} <span>${body.surname}</span> viene a ver a ${body.visitor} </div>
+   
+      <p>Datos del visitante:</p>
+      <div>email: ${body.email}</div>
     </body>
     
     </html>`
