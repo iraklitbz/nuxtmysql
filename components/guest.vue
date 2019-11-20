@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-layout class="main-hero" text-center wrap>
-      <v-flex mb-4>
+      <v-flex>
         <h1 class="headline">Bienvenido a Impact Hub Madrid</h1>
         <p
           class="subheading font-weight-regular"
@@ -41,14 +41,14 @@
             v-model="form.visitor"
             :error-messages="visitorErrors"
             :counter="40"
-            label="Vengo a ver a (nombre y apellidos)"
+            label="Persona,empresa o evento"
             required
             @input="$v.form.visitor.$touch()"
             @blur="$v.form.visitor.$touch()"
           ></v-text-field>
           <v-checkbox
             v-model="form.newsletter"
-            label="Sí, quiero suscribirme a la newsletter de Impact Hub"
+            label="Acepto recibir información sobre productos y servicios de Impact Hub"
             @change="$v.form.newsletter.$touch()"
             @blur="$v.form.newsletter.$touch()"
           ></v-checkbox>
@@ -67,7 +67,7 @@
           </div>
         </form>
       </v-flex>
-      <v-dialog v-model="form.dialog" max-width="500">
+      <v-dialog v-model="dialog" max-width="500">
         <v-card>
           <v-card-title class="headline">Muchas gracias!</v-card-title>
 
@@ -118,9 +118,9 @@ export default {
       visitor: "",
       email: "",
       aceptoTodo: false,
-      newsletter: true,
-      dialog: false
+      newsletter: true
     },
+     dialog: false,
     aviso: "Almacenaremos tus datos máximo 60 días," + "\n" + "¿estas de acuerdo?"
   }),
   computed: {
@@ -173,7 +173,10 @@ export default {
           .catch(function(error) {
             console.log(error);
           });
-           dialog: true
+           this.dialog = true
+             setTimeout(function(){ 
+                  this.dialog = false
+              }, 5000);
         } else {
          this.$v.$touch()
         }
@@ -186,7 +189,7 @@ export default {
       this.form.visitor = "";
       this.form.email = "";
       this.form.aceptoTodo = false;
-      this.form.dialog = false;
+      this.dialog = false;
     }
   },
   mounted() {
@@ -229,8 +232,8 @@ body {
 .v-application .headline {
   font-family: GT Walsheim Pro !important;
   font-weight: 700;
-  font-size: 2.3rem !important;
-  padding: 20px !important;
+  font-size: 28px !important;
+  padding: 10px !important;
   line-height: 1.1 !important;
 }
 p {
@@ -241,7 +244,7 @@ p {
 .main-container {
   margin-top: 20px;
   background-color: #fff;
-  width: 70%;
+  width: 95%;
   margin: auto;
   margin-top: 20px;
   border: 1px solid #eee;
@@ -250,14 +253,14 @@ p {
 }
 .main-hero {
   background-color: #ee4f3f;
-  padding: 25px 0;
+  padding: 15px 0;
 }
 .main-hero h1,
 .main-hero p {
   color: #fff;
 }
 .main-from {
-  padding: 25px 55px;
+  padding: 15px 55px;
 }
 .send {
   background-color: #005d66 !important;
@@ -267,10 +270,11 @@ p {
   width: 260px;
 }
 .v-btn {
-  font-size: 20px !important;
-  height: 85px !important;
+  font-size: 15px !important;
+  height: 45px !important;
   width: 50%;
   border-radius: 0px;
+  border: 4px solid #005d66
 }
 .flex.mb-4 {
   max-width: 550px;
@@ -279,10 +283,12 @@ p {
 .footer {
   display: flex;
   align-items: center;
-  position: fixed;
   bottom: 0;
   width: 100%;
   left: 0;
+}
+.footer .v-btn:first-child {
+margin-right: 15px
 }
 .v-card__actions .v-btn {
   width: 100%;
@@ -299,4 +305,5 @@ p {
   text-align: center;
   font-size: 20px;
 }
+
 </style>
