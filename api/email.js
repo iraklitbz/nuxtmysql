@@ -2,13 +2,13 @@ const nodemailer = require('nodemailer')
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'iraklitbz@gmail.com',
-        pass: ''
+        user: 'madrid.piamonte@impacthub.net ',
+        pass: 'cjuukwjoabtemzrl'
     }
 })
 const mailOptions = {
-    from: 'iraklitbz@gmail.com',
-    to: 'iraklitbz@gmail.com',
+    from: 'madrid.visitas@impacthub.net',
+    to: 'madrid.piamonte@impacthub.net ',
     subject: 'Visita'
 }
 
