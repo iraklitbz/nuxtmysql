@@ -17,7 +17,7 @@
     <v-container>
     <v-layout class="main-hero" text-center wrap>
       <v-flex>
-        <h1 class="headline">bienvenido/a a Impact Hub Madrid</h1>
+        <h1 class="headline">Bienvenido/a a Impact Hub Madrid</h1>
     
       </v-flex>
     </v-layout>
@@ -54,20 +54,16 @@ export default {
 <style scoped>
 @font-face {
   font-family: GT Walsheim Pro;
-  src: local("GT Walsheim Pro Regular"), local("GTWalsheimProRegular"),
-    url("../assets/font/GTWalsheimProRegular.woff2") format("woff2"),
-    url("../assets/font/GTWalsheimProRegular.woff") format("woff"),
-    url("../assets/font/GTWalsheimProRegular.ttf") format("truetype");
+  src: local("GT Walsheim Pro Regular"), local("gt-walsheim-bold-web"),
+    url("../assets/font/gt-walsheim-medium-web.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: GT Walsheim Pro;
-  src: local("GT Walsheim Pro Bold"), local("GTWalsheimProBold"),
-    url("../assets/font/GTWalsheimProBold.woff2") format("woff2"),
-    url("../assets/font/GTWalsheimProBold.woff") format("woff"),
-    url("../assets/font/GTWalsheimProBold.ttf") format("truetype");
+  src: local("GT Walsheim Pro Bold"), local("gt-walsheim-bold-web"),
+    url("../assets/font/gt-walsheim-bold-web.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
@@ -92,7 +88,7 @@ body {
   line-height: 1.1 !important;
 }
 p {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
   line-height: 1.45;
   text-align: left;
@@ -120,7 +116,8 @@ p {
   background-color: #1E5D66;
   text-align: center;
   font-weight: bold;
-  text-transform: uppercase
+  text-transform: uppercase;
+    border-radius: 0px
 }
 .main-container {
   margin-top: 20px;
@@ -128,17 +125,21 @@ p {
   margin: auto;
   margin-top: 20px;
 }
+.v-card > *:first-child:not(.v-btn):not(.v-chip), .v-card > .v-card__progress + *:not(.v-btn):not(.v-chip) {
+   border-radius: 0px
+}
 .main-hero {
   background-color: #1E5D66;
   padding: 25px 0;
   margin-bottom: 50px;
+
 }
 .main-hero h1,
 .main-hero p {
   color: #fff;
    max-width: 550px;
   margin: auto;
-  text-align: left
+  text-align: center
 }
 .logo {
   width: 100%;

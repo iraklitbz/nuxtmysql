@@ -36,20 +36,16 @@ export default {
 <style scoped>
 @font-face {
   font-family: GT Walsheim Pro;
-  src: local("GT Walsheim Pro Regular"), local("GTWalsheimProRegular"),
-    url("../assets/font/GTWalsheimProRegular.woff2") format("woff2"),
-    url("../assets/font/GTWalsheimProRegular.woff") format("woff"),
-    url("../assets/font/GTWalsheimProRegular.ttf") format("truetype");
+  src: local("GT Walsheim Pro Regular"), local("gt-walsheim-bold-web"),
+    url("../assets/font/gt-walsheim-medium-web.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: GT Walsheim Pro;
-  src: local("GT Walsheim Pro Bold"), local("GTWalsheimProBold"),
-    url("../assets/font/GTWalsheimProBold.woff2") format("woff2"),
-    url("../assets/font/GTWalsheimProBold.woff") format("woff"),
-    url("../assets/font/GTWalsheimProBold.ttf") format("truetype");
+  src: local("GT Walsheim Pro Bold"), local("gt-walsheim-bold-web"),
+    url("../assets/font/gt-walsheim-bold-web.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }

@@ -35,6 +35,7 @@
             @blur="$v.form.email.$touch()"
           ></v-text-field>
           <v-text-field
+             class="marginbottom"
             v-model="form.visitor"
             :error-messages="visitorErrors"
             :counter="40"
@@ -192,28 +193,31 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style>
 @font-face {
   font-family: GT Walsheim Pro;
-  src: local("GT Walsheim Pro Regular"), local("GTWalsheimProRegular"),
-    url("../assets/font/GTWalsheimProRegular.woff2") format("woff2"),
-    url("../assets/font/GTWalsheimProRegular.woff") format("woff"),
-    url("../assets/font/GTWalsheimProRegular.ttf") format("truetype");
+  src: local("GT Walsheim Pro Regular"), local("gt-walsheim-bold-web"),
+    url("../assets/font/gt-walsheim-medium-web.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: GT Walsheim Pro;
-  src: local("GT Walsheim Pro Bold"), local("GTWalsheimProBold"),
-    url("../assets/font/GTWalsheimProBold.woff2") format("woff2"),
-    url("../assets/font/GTWalsheimProBold.woff") format("woff"),
-    url("../assets/font/GTWalsheimProBold.ttf") format("truetype");
+  src: local("GT Walsheim Pro Bold"), local("gt-walsheim-bold-web"),
+    url("../assets/font/gt-walsheim-bold-web.woff") format("woff");
   font-weight: 700;
   font-style: normal;
-}
+}f
 body {
   background-color: #f3f3f3;
+}
+.marginbottom {
+margin-bottom: 30px
+}
+.v-input--checkbox {
+      max-width: 90%;
+    margin: auto;
 }
 .container {
   font-family: GT Walsheim Pro;
@@ -285,8 +289,8 @@ fill: #fff;
   display: flex;
   align-items: center;
   bottom: 0;
-  width: 100%;
-  left: 0;
+
+    margin-top: 25px;
 }
 .footer .v-btn:first-child {
 margin-right: 15px
@@ -306,5 +310,10 @@ margin-right: 15px
   text-align: center;
   font-size: 20px;
 }
-
+.v-input--selection-controls__input{
+     margin-right: 15px;
+}
+.v-label {
+  color: #999!important
+}
 </style>
