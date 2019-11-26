@@ -17,7 +17,7 @@
     <v-container>
     <v-layout class="main-hero" text-center wrap>
       <v-flex>
-        <h1 class="headline">Bienvenido a Impact Hub Madrid</h1>
+        <h1 class="headline">bienvenido/a a Impact Hub Madrid</h1>
     
       </v-flex>
     </v-layout>
@@ -29,7 +29,7 @@
              Vengo a una reunión
           </nuxt-link>
             <nuxt-link  :to="{path: 'evento'}">
-             Vengo a una evento
+             Vengo a un evento
            </nuxt-link >
              <a role="button" target="_blank" href="https://landings.impacthubmadrid.com/solicitud-consentimiento-gdpr-totem/">
              Quiero seguir en contacto
@@ -113,6 +113,7 @@ p {
   align-items: center;
   justify-items: center;
   height: 100px;
+  padding: 0 15px;
   width: 31%;
   text-decoration: none;
   color: #fff;

@@ -2,7 +2,7 @@
   <v-container>
     <v-layout class="main-hero" text-center wrap>
       <v-flex>
-        <h1 class="headline"> <nuxt-link  :to="{path: '/'}"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"/></svg> </nuxt-link>Vengo a una evento</h1>
+        <h1 class="headline"> <nuxt-link  :to="{path: '/'}"><svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"><path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"/></svg> </nuxt-link>Vengo a un evento</h1>
       </v-flex>
     </v-layout>
     <v-layout class="main-container" text-center wrap>
@@ -59,7 +59,7 @@
           ></v-checkbox>
 
           <div class="footer">
-            <v-btn class="send" @click="submit">Avisar de mi llegada</v-btn>
+            <v-btn class="send" @click="submit">Enviar</v-btn>
             <v-btn @click="clear">Limpiar formulario</v-btn>
           </div>
         </form>
@@ -115,7 +115,7 @@ export default {
       visitor: "",
       email: "",
       aceptoTodo: false,
-      newsletter: true
+      newsletter: false
     },
      dialog: false,
     aviso: "Acepto recibir información sobre productos y servicios de Impuct Hub"

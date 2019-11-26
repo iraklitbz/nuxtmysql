@@ -59,7 +59,7 @@
           ></v-checkbox>
 
           <div class="footer">
-            <v-btn class="send" @click="submit">Avisar de mi llegada</v-btn>
+            <v-btn class="send" @click="submit">Enviar</v-btn>
             <v-btn @click="clear">Limpiar formulario</v-btn>
           </div>
         </form>
@@ -115,7 +115,7 @@ export default {
       visitor: "",
       email: "",
       aceptoTodo: false,
-      newsletter: true
+      newsletter: false
     },
      dialog: false,
     aviso: "Acepto recibir información sobre productos y servicios de Impuct Hub"
