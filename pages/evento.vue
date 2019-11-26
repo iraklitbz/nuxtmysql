@@ -121,6 +121,11 @@ p {
   width: 100%;
       position: relative;
 }
+.main-header {
+  background-color: #151515;
+  padding: 10px;
+  position: relative;
+}
 .main-header:before {
   content: "";
   display: block;
