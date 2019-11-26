@@ -123,5 +123,10 @@ p {
 .main-header {
   background-color: #151515;
   padding: 10px;
+  background-image: url("../assets/Mares.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-position-y: 21%;
+  background-size: cover;
 }
 </style>

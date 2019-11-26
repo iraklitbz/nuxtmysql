@@ -39,7 +39,7 @@
             v-model="form.visitor"
             :error-messages="visitorErrors"
             :counter="40"
-            label="¿A que evento asistes?"
+            label="¿A qué evento asistes?"
             required
             @input="$v.form.visitor.$touch()"
             @blur="$v.form.visitor.$touch()"
