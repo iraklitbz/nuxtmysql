@@ -195,7 +195,7 @@ export default {
     var hour = String(today.getHours());
     var minut = String(today.getMinutes());
     console.log(hour)
-    today = dd + '/' + mm + '/' + yyyy + '|' + hour + ':' + minut;
+    today = dd + '/' + mm + '/' + yyyy + ' | ' + hour + ':' + minut;
     this.form.registro = today;
     window.addEventListener("load", function() {
       setTimeout(function() {
