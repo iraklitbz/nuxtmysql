@@ -47,7 +47,7 @@
           <v-checkbox
             class="checkbox"
             v-model="form.Productosyservicios"
-            label="Acepto recibir noticias e invitaciones a eventos de Impuct Hub"
+            label="Acepto recibir noticias e invitaciones a eventos de Impact Hub"
             @change="$v.form.Productosyservicios.$touch()"
             @blur="$v.form.Productosyservicios.$touch()"
           ></v-checkbox>
@@ -119,7 +119,7 @@ export default {
       Productosyservicios: false
     },
      dialog: false,
-    aviso: "Acepto recibir información sobre productos y servicios de Impuct Hub"
+    aviso: "Acepto recibir información sobre productos y servicios de Impact Hub"
   }),
   computed: {
     nameErrors() {
