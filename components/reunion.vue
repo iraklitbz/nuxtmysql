@@ -53,7 +53,6 @@
             v-model="form.aceptoTodo"
             :error-messages="aceptoTodoErrors"
             :label="aviso"
-            required
             @change="$v.form.aceptoTodo.$touch()"
             @blur="$v.form.aceptoTodo.$touch()"
           ></v-checkbox>
