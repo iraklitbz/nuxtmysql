@@ -114,7 +114,7 @@ export default {
       visitor_event: "",
       email: "",
       registro: "",
-      oficina: "",
+      oficina: "Piamonte",
       noticiasEinvitaciones: false,
       Productosyservicios: false
     },
