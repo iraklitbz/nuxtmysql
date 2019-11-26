@@ -36,13 +36,13 @@
           ></v-text-field>
           <v-text-field
             class="marginbottom"
-            v-model="form.visitor"
+            v-model="form.visitor_event"
             :error-messages="visitorErrors"
             :counter="40"
             label="¿A quién visitas?"
             required
-            @input="$v.form.visitor.$touch()"
-            @blur="$v.form.visitor.$touch()"
+            @input="$v.form.visitor_event.$touch()"
+            @blur="$v.form.visitor_event.$touch()"
           ></v-text-field>
           <v-checkbox
             class="checkbox"
@@ -69,7 +69,7 @@
         <v-card>
           <v-card-title class="headline">Muchas gracias!</v-card-title>
 
-          <v-card-text>Se avisara enseguida a {{form.visitor}} de su llegada, gracias</v-card-text>
+          <v-card-text>Se avisara enseguida a {{form.visitor_event}} de su llegada, gracias</v-card-text>
 
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -92,7 +92,7 @@ export default {
     form: {
       name: { required, maxLength: maxLength(15) },
       surname: { required, maxLength: maxLength(40) },
-      visitor: { required, maxLength: maxLength(40) },
+      visitor_event: { required, maxLength: maxLength(40) },
       email: { required, email },
       select: { required },
      noticiasEinvitaciones: {
@@ -113,8 +113,10 @@ export default {
     form: {
       name: "",
       surname: "",
-      visitor: "",
+      visitor_event: "",
       email: "",
+      registro: "",
+      oficina: "Piamonte",
       noticiasEinvitaciones: false,
       Productosyservicios: false
     },
@@ -140,10 +142,10 @@ export default {
     },
     visitorErrors() {
       const errors = [];
-      if (!this.$v.form.visitor.$dirty) return errors;
-      !this.$v.form.visitor.maxLength &&
+      if (!this.$v.form.visitor_event.$dirty) return errors;
+      !this.$v.form.visitor_event.maxLength &&
         errors.push("El nombre debe de contener máximo 15 caracteres");
-      !this.$v.form.visitor.required && errors.push("Este campo es obligatorio");
+      !this.$v.form.visitor_event.required && errors.push("Este campo es obligatorio");
       return errors;
     },
     emailErrors() {
@@ -157,7 +159,7 @@ export default {
 
   methods: {
     submit() {
-        if(this.$v.form.name.required === true && this.$v.form.surname.required === true && this.$v.form.visitor.required === true && this.$v.form.email.required === true )  {
+        if(this.$v.form.name.required === true && this.$v.form.surname.required === true && this.$v.form.visitor_event.required === true && this.$v.form.email.required === true )  {
           this.$axios.post("/api", this.form)
           .then(function(response) {
             console.log(response);
@@ -186,6 +188,12 @@ export default {
     }
   },
   mounted() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '/' + mm + '/' + yyyy;
+    this.form.registro = today;
     window.addEventListener("load", function() {
       setTimeout(function() {
         window.scrollTo(0, 1);
