@@ -119,8 +119,16 @@ p {
 }
 .logo {
   width: 100%;
+      position: relative;
 }
-.main-header {
+.main-header:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
   background-color: #151515;
   padding: 10px;
   background-image: url("../assets/Mares.jpg");
@@ -128,5 +136,6 @@ p {
   background-position: top;
   background-position-y: 21%;
   background-size: cover;
+  opacity: 0.5;
 }
 </style>
