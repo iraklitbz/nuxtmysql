@@ -141,6 +141,6 @@ p {
   background-position: top;
   background-position-y: 21%;
   background-size: cover;
-  opacity: 0.5;
+opacity: 0.7;
 }
 </style>

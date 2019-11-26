@@ -117,7 +117,7 @@ p {
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
-    border-radius: 0px
+    border-radius: 0px!important
 }
 .main-container {
   margin-top: 20px;
@@ -165,6 +165,6 @@ p {
   background-position: top;
   background-position-y: 21%;
   background-size: cover;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 </style>
