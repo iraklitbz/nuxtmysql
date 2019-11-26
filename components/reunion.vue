@@ -44,17 +44,16 @@
             @blur="$v.form.visitor.$touch()"
           ></v-text-field>
           <v-checkbox
-            v-model="form.newsletter"
+            v-model="form.Productosyservicios"
             label="Acepto recibir noticias e invitaciones a eventos de Impuct Hub"
-            @change="$v.form.newsletter.$touch()"
-            @blur="$v.form.newsletter.$touch()"
+            @change="$v.form.Productosyservicios.$touch()"
+            @blur="$v.form.Productosyservicios.$touch()"
           ></v-checkbox>
           <v-checkbox
-            v-model="form.aceptoTodo"
-            :error-messages="aceptoTodoErrors"
+            v-model="form.noticiasEinvitaciones"
             :label="aviso"
-            @change="$v.form.aceptoTodo.$touch()"
-            @blur="$v.form.aceptoTodo.$touch()"
+            @change="$v.form.noticiasEinvitaciones.$touch()"
+            @blur="$v.form.noticiasEinvitaciones.$touch()"
           ></v-checkbox>
 
           <div class="footer">
@@ -113,19 +112,13 @@ export default {
       surname: "",
       visitor: "",
       email: "",
-      aceptoTodo: false,
-      newsletter: false
+      noticiasEinvitaciones: false,
+      Productosyservicios: false
     },
      dialog: false,
     aviso: "Acepto recibir información sobre productos y servicios de Impuct Hub"
   }),
   computed: {
-    aceptoTodoErrors() {
-      const errors = [];
-      if (!this.$v.form.aceptoTodo.$dirty) return errors;
-      !this.$v.form.aceptoTodo.checked && errors.push("Este campo es obligatorio");
-      return errors;
-    },
     nameErrors() {
       const errors = [];
       if (!this.$v.form.name.$dirty) return errors;
@@ -161,7 +154,7 @@ export default {
 
   methods: {
     submit() {
-        if(this.$v.form.name.required === true && this.$v.form.surname.required === true && this.$v.form.visitor.required === true && this.$v.form.email.required === true && this.$v.form.aceptoTodo.checked  === true )  {
+        if(this.$v.form.name.required === true && this.$v.form.surname.required === true && this.$v.form.visitor.required === true && this.$v.form.email.required === true )  {
           this.$axios.post("/api", this.form)
           .then(function(response) {
             console.log(response);
@@ -184,7 +177,8 @@ export default {
       this.form.surname = "";
       this.form.visitor = "";
       this.form.email = "";
-      this.form.aceptoTodo = false;
+      this.form.noticiasEinvitaciones = false;
+      this.form.Productosyservicios = false;
       this.dialog = false;
     }
   },
