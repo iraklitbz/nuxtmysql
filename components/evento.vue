@@ -114,7 +114,7 @@ export default {
       visitor_event: "",
       email: "",
       registro: "",
-      oficina: "Piamonte",
+      oficina: "",
       noticiasEinvitaciones: false,
       Productosyservicios: false
     },
@@ -187,17 +187,25 @@ export default {
     }
   },
   mounted() {
+    
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    today = dd + '/' + mm + '/' + yyyy;
+    var hour = String(today.getHours());
+    var minut = String(today.getMinutes());
+    console.log(hour)
+    today = dd + '/' + mm + '/' + yyyy + '|' + hour + ':' + minut;
     this.form.registro = today;
     window.addEventListener("load", function() {
       setTimeout(function() {
         window.scrollTo(0, 1);
       }, 0);
     });
+    
+    /*console.log( $nuxt.$route)*/
+
+  
   }
 };
 </script>
