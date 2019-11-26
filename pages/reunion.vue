@@ -14,38 +14,20 @@
       </v-toolbar-title>
     </div>
 
-    <v-container>
-    <v-layout class="main-hero" text-center wrap>
-      <v-flex>
-        <h1 class="headline">Bienvenido a Impact Hub Madrid</h1>
-    
-      </v-flex>
-    </v-layout>
-    <v-layout class="main-container" text-center wrap>
-       <v-flex mb-4>
-         <p>¿Cuál es el motivo de su visita a Impact Hub?</p>
-         <v-card class="button-group">
-           <nuxt-link  :to="{path: 'reunion'}">
-             Vengo a una reunión
-          </nuxt-link>
-            <nuxt-link  :to="{path: 'evento'}">
-             Vengo a una evento
-           </nuxt-link >
-             <a role="button" target="_blank" href="https://landings.impacthubmadrid.com/solicitud-consentimiento-gdpr-totem/">
-             Quiero seguir en contacto
-           </a>
-         </v-card>
-        <p>Impoct Hub Madrid tratará tus datos únicamente para tramitar esta solicitud. Puedes conocer cómo ejercer tus derechos de acceso, rectificación y suspensión en nuestra <a target="_blank" href="https://madrid.impacthub.net/aviso-legal-y-privacidad/">Política de Privacidad</a></p>
-       </v-flex>
-      </v-layout>
-      </v-container>
+    <v-content>
+      <reunion />
+    </v-content>
   </v-app>
 </template>
 
 <script>
+import reunion from "~/components/reunion.vue";
 
 export default {
   name: "App",
+  components: {
+    reunion
+  },
   data: () => ({
     //
   })
