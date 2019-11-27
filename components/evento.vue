@@ -109,12 +109,13 @@ export default {
   data: () => ({
     guest: [],
     form: {
-      name: "",
+       name: "",
       surname: "",
       visitor_event: "",
       email: "",
-      registro: "",
-      oficina: "Piamonte",
+      fecha: "",
+      hora: "",
+      oficina: "",
       noticiasEinvitaciones: false,
       Productosyservicios: false
     },
