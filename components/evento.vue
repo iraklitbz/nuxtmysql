@@ -188,23 +188,51 @@ export default {
   },
   mounted() {
     
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    var hour = String(today.getHours());
-    var minut = String(today.getMinutes());
+    var fecha = new Date();
+    var hora = new Date();
+    var dd = String(fecha.getDate()).padStart(2, '0');
+    var mm = String(fecha.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = fecha.getFullYear();
+    var hour = String(hora.getHours());
+    var minut = String(hora.getMinutes());
     console.log(hour)
-    today = dd + '/' + mm + '/' + yyyy + ' | ' + hour + ':' + minut;
-    this.form.registro = today;
+    fecha = dd + '/' + mm + '/' + yyyy;
+    hora = hour + ':' + minut;
+    this.form.fecha = fecha;
+    this.form.hora = hora;
     window.addEventListener("load", function() {
       setTimeout(function() {
         window.scrollTo(0, 1);
       }, 0);
     });
     
-    /*console.log( $nuxt.$route)*/
+    var name = $nuxt.$el.baseURI;
+    var splitted = name.split(':')
+    var getport = splitted[2].split('/')
+    var port = getport[0]
+   switch (port)    
+    {
+        case "3000":
+            this.form.oficina = "Piamonte"
+            break;
 
+        case "3001":
+            this.form.oficina = "Alameda"
+            break;
+
+        case "3002":
+            this.form.oficina = "Barcelo"
+            break;
+        
+        case "3003":
+            this.form.oficina = "Prosperidad"
+            break;
+
+        case "3004":
+            this.form.oficina = "Picasso"
+            break;
+
+    }
   
   }
 };
