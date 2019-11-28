@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize'
 import sendMail from './email'
 
-const sequelize = new Sequelize('guests', 'root', '', {
+const sequelize = new Sequelize('guests', 'root', 'Hubits12345', {
     dialect: 'mysql'
 })
 
