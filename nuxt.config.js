@@ -50,7 +50,7 @@ module.exports = {
   ],
   
   axios: {
-    baseURL: process.env.NODE_ENV === 'production' ? 'http://63.35.236.33:3000' : 'http://localhost:3000'
+    baseURL: process.env.NODE_ENV === 'production' ? 'http://54.229.118.71:3000' : 'http://localhost:3000'
   },
   /*
   ** vuetify module configuration
