@@ -206,34 +206,6 @@ export default {
         window.scrollTo(0, 1);
       }, 0);
     });
-    
-    var name = $nuxt.$el.baseURI;
-    var splitted = name.split(':')
-    var getport = splitted[2].split('/')
-    var port = getport[0]
-   switch (port)    
-    {
-        case "3000":
-            this.form.oficina = "Piamonte"
-            break;
-
-        case "3001":
-            this.form.oficina = "Alameda"
-            break;
-
-        case "3002":
-            this.form.oficina = "Barcelo"
-            break;
-        
-        case "3003":
-            this.form.oficina = "Prosperidad"
-            break;
-
-        case "3004":
-            this.form.oficina = "Picasso"
-            break;
-
-    }
   
   }
 };
